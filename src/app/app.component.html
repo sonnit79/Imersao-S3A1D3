@@ -21,10 +21,10 @@
         @for (chamado of chamados(); track chamado.Nome){
             <article class="chamado-card">
                 <div class="chamado-header">
-                    <h3>{{chamado.Nome}}</h3>
+                    <h3>Usuário: {{chamado.Nome}}</h3>
                     <div class="acoes">
-                        <button (click)="editarChamado(chamado)">Editar</button>
-                        <button (click)="excluirChamado(chamado)">Resolvido</button>
+                        <button (click)="editarChamado(chamado)">Editar &#9998;</button>
+                        <button (click)="excluirChamado(chamado)">Resolvido &#9989;</button>
                     </div>
                 </div>
                 <p>{{ chamado.conteudo}}</p>
@@ -32,7 +32,7 @@
             </article>
         }
         @empty{
-            <p>Nenhum Chamado publicado</p>
+            <p class="msg">Nenhum chamado publicado</p>
         }
     </section>
     <hr>
@@ -43,13 +43,13 @@
                 <div class="chamado-header">
                     <h3>{{chamado.Nome}}</h3>
                     <div class="acoes">
-                        <button (click)="excluirChamado(chamado)">Resolvido</button>
+                        <button (click)="excluirChamado(chamado)">Resolvido &#9989;</button>
                     </div>
                 </div>
                 <p>{{ chamado.conteudo}}</p>
             </article>
         }@empty{
-            <p>Bom trabalho. Nenhum chamado pendente.</p>
+            <p class="msg">Bom trabalho. Nenhum chamado pendente.<span class="msg2">&#9786;</span></p>
         }
  
     </section>

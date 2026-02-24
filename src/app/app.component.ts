@@ -10,8 +10,8 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
 
   chamados = signal([
-    {Nome: 'Chamadoagem 1', conteudo: 'Detalhes da Chamadoagem 1'},
-    {Nome: 'Chamadoagem 2', conteudo: 'Detalhes da Chamadoagem 2'},
+    {Nome: 'Sandra', conteudo: 'Instalar outlook'},
+    {Nome: 'Mário Lima', conteudo: 'Precisos ajustar a configuração do Node.js'},
   ]);
 
   novoNome = signal('');

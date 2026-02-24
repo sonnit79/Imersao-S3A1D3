@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+
+ :root {
+    --cor-primaria: #24497c;
+    --cor-secundaria: #FFFFFF;
+    --cor-fundo: #eeead6;
+    --cor-texto: #24497c;
+}
+

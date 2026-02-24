@@ -1,0 +1,55 @@
+body {
+    
+    margin: 0;
+    padding: 0;
+    
+}
+
+header{
+    background-color: black;
+    color: white;
+    padding: 4px 10px;
+    text-align: center;
+}
+
+.blog-container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.formulario {
+    background-color: antiquewhite;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px;
+    
+}
+
+h3 {
+    background-color: rgb(182, 81, 81);
+    color: white;
+    padding: 0px 10px;
+}
+
+button{
+    background-color: royalblue;
+    color: white;   
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+textarea{
+    border: 1px solid black;
+    padding: 4px 10px;
+
+}
+
+input{
+   border: 1px solid black;
+    padding: 4px 10px; 
+}

@@ -1,55 +1,55 @@
 <div class="blog-container">
     <header>
-        <h1>Painel do Cliente</h1>
+        <h1>Sistema de Suporte ao Cliente</h1>
     </header>
  
     <section class="formulario">
-        <h3>{{postEditado() ? 'Editando Post': 'Novo Post'}}</h3>
-        <input [(ngModel)]="novoTitulo" placeholder="Titulo">
-        <textarea [(ngModel)]="novoConteudo" placeholder="Digite o Conteúdo"></textarea>
+        <h3>{{chamadoEditado() ? 'Editando Chamado': 'Novo Chamado'}}</h3>
+        <input [(ngModel)]="novoNome" placeholder="Seu nome">
+        <textarea [(ngModel)]="novoConteudo" placeholder="Digite sua dúvida/problema"></textarea>
  
-        @if (postEditado()){
+        @if (chamadoEditado()){
             <button (click)="salvarEdicao()">Salvar Alterações</button>
             <button (click)="cancelarEdicao()">Cancelar</button>
         }
         @else{
-            <button (click)="adicionarPost()">Publicar</button>
+            <button class="btn-abrir" (click)="adicionarChamado()">Abrir</button>
         }
  
     </section>
     <section class="feed">
-        @for (post of posts(); track post.titulo){
-            <article class="post-card">
-                <div class="post-header">
-                    <h3>{{post.titulo}}</h3>
+        @for (chamado of chamados(); track chamado.Nome){
+            <article class="chamado-card">
+                <div class="chamado-header">
+                    <h3>{{chamado.Nome}}</h3>
                     <div class="acoes">
-                        <button (click)="editarPost(post)">Editar</button>
-                        <button (click)="excluirPost(post)">X</button>
+                        <button (click)="editarChamado(chamado)">Editar</button>
+                        <button (click)="excluirChamado(chamado)">Resolvido</button>
                     </div>
                 </div>
-                <p>{{ post.conteudo}}</p>
+                <p>{{ chamado.conteudo}}</p>
  
             </article>
         }
         @empty{
-            <p>Nenhum post publicado</p>
+            <p>Nenhum Chamado publicado</p>
         }
     </section>
     <hr>
     <section class="feed">
-        <h2>Últimas postagens</h2>
-        @for (post of posts(); track post.titulo){
-             <article class="post-card">
-                <div class="post-header">
-                    <h3>{{post.titulo}}</h3>
+        <h2>Últimos Chamados</h2>
+        @for (chamado of chamados(); track chamado.Nome){
+             <article class="chamado-card">
+                <div class="chamado-header">
+                    <h3>{{chamado.Nome}}</h3>
                     <div class="acoes">
-                        <button (click)="excluirPost(post)">X</button>
+                        <button (click)="excluirChamado(chamado)">Resolvido</button>
                     </div>
                 </div>
-                <p>{{ post.conteudo}}</p>
+                <p>{{ chamado.conteudo}}</p>
             </article>
         }@empty{
-            <p>Nenhum post publicado</p>
+            <p>Bom trabalho. Nenhum chamado pendente.</p>
         }
  
     </section>

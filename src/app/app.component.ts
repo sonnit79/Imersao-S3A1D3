@@ -9,44 +9,44 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
 
-  posts = signal([
-    {titulo: 'Postagem 1', conteudo: 'Detalhes da postagem 1'},
-    {titulo: 'Postagem 2', conteudo: 'Detalhes da postagem 2'},
+  chamados = signal([
+    {Nome: 'Chamadoagem 1', conteudo: 'Detalhes da Chamadoagem 1'},
+    {Nome: 'Chamadoagem 2', conteudo: 'Detalhes da Chamadoagem 2'},
   ]);
 
-  novoTitulo = signal('');
+  novoNome = signal('');
   novoConteudo = signal('');
 
-  postEditado = signal<any>(null);
+  chamadoEditado = signal<any>(null);
 
-  adicionarPost(){
-    if(this.novoTitulo() && this.novoConteudo()){
-      this.posts.update((lista) => [
-        { titulo: this.novoTitulo(), conteudo: this.novoConteudo() },
+  adicionarChamado(){
+    if(this.novoNome() && this.novoConteudo()){
+      this.chamados.update((lista) => [
+        { Nome: this.novoNome(), conteudo: this.novoConteudo() },
         ...lista
       ]);
-      this.novoTitulo.set('');
+      this.novoNome.set('');
       this.novoConteudo.set('');
     }else{
       alert('Preencha todos campos.');
     }
   }
 
-  excluirPost(postRemover: any){
-    this.posts.update((listaAtual) => listaAtual.filter(post => post !== postRemover));
+  excluirChamado(ChamadoRemover: any){
+    this.chamados.update((listaAtual) => listaAtual.filter(chamado => chamado !== ChamadoRemover));
   }
 
-  editarPost(post: any){
-    this.postEditado.set(post);
-    this.novoTitulo.set(post.titulo);
-    this.novoConteudo.set(post.conteudo);
+  editarChamado(Chamado: any){
+    this.chamadoEditado.set(Chamado);
+    this.novoNome.set(Chamado.Nome);
+    this.novoConteudo.set(Chamado.conteudo);
   }
 
   salvarEdicao(){
-    this.posts.update((lista) => {
+    this.chamados.update((lista) => {
       return lista.map(p => {
-        if (p === this.postEditado()) {
-          return { titulo: this.novoTitulo(), conteudo: this.novoConteudo() };
+        if (p === this.chamadoEditado()) {
+          return { Nome: this.novoNome(), conteudo: this.novoConteudo() };
         }
         return p;
       });
@@ -54,8 +54,8 @@ export class AppComponent {
   }
 
   cancelarEdicao(){
-    this.postEditado.set(null);
-    this.novoTitulo.set('');
+    this.chamadoEditado.set(null);
+    this.novoNome.set('');
     this.novoConteudo.set('');
   }
 }
